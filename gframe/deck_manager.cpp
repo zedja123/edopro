@@ -181,6 +181,22 @@ static DeckError CheckCards(const Deck::Vector& cards, LFList const* curlist,
 			if (cit->ot & 0x1 || cit->ot & 0x2 || cit->ot & 0x100)
 				break;
 			return ret.type = DeckError::UNOFFICIALCARD, ret;
+		case DuelAllowedCards::ALLOWED_CARDS_OCG_CUSTOM:
+			if (cit->ot & 0x1 || cit->ot & 0x20)
+				break;
+			return ret.type = DeckError::UNOFFICIALCARD, ret;
+		case DuelAllowedCards::ALLOWED_CARDS_TCG_CUSTOM:
+			if (cit->ot & 0x2 || cit->ot & 0x20)
+				break;
+			return ret.type = DeckError::UNOFFICIALCARD, ret;
+		case DuelAllowedCards::ALLOWED_CARDS_OCG_TCG_CUSTOM:
+			if (cit->ot & 0x1 || cit->ot & 0x2 || cit->ot & 0x20)
+				break;
+			return ret.type = DeckError::UNOFFICIALCARD, ret;
+		case DuelAllowedCards::ALLOWED_CARDS_PRERELEASE_CUSTOM:
+			if (cit->ot & 0x1 || cit->ot & 0x2 || cit->ot & 0x100 || cit->ot & 0x20)
+				break;
+			return ret.type = DeckError::UNOFFICIALCARD, ret;
 		case DuelAllowedCards::ALLOWED_CARDS_ANY:
 		default:
 			break;

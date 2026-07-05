@@ -3507,7 +3507,7 @@ void Game::ReloadCBDuelRule(irr::gui::IGUIComboBox* cb) {
 }
 void Game::ReloadCBRule() {
 	cbRule->clear();
-	for (auto i = 1900; i <= 1904; ++i)
+	for (auto i = 1900; i <= 1908; ++i)
 		cbRule->addItem(gDataManager->GetSysString(i).data());
 }
 void Game::ReloadCBCurrentSkin() {
