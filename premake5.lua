@@ -146,6 +146,11 @@ if _OPTIONS["sound"] then
 	end
 end
 
+if _OPTIONS["discord"] then
+    print("Discord App ID: " .. _OPTIONS["discord"])
+    defines { 'DISCORD_APP_ID="' .. _OPTIONS["discord"] .. '"' }
+end
+
 local _includedirs=includedirs
 if _ACTION=="xcode4" then
 	_includedirs=sysincludedirs
@@ -365,3 +370,5 @@ if os.istarget("windows") then
 		return {}
 	end)
 end
+
+

@@ -40,7 +40,7 @@ local ygopro_config=function(static_core)
 		defines { "DEFAULT_COVER_URL=" .. _OPTIONS["covers"] }
 	end
 	if _OPTIONS["discord"] and not os.istarget("ios") then
-		defines { "DISCORD_APP_ID=" .. _OPTIONS["discord"] }
+		defines { 'DISCORD_APP_ID="' .. _OPTIONS["discord"] .. '"' }
 	end
 	if _OPTIONS["update-url"] then
 		defines { "UPDATE_URL=" .. _OPTIONS["update-url"] }
@@ -50,10 +50,11 @@ local ygopro_config=function(static_core)
 	else
 		excludes { "CGUITTFont/bundled_font.cpp" }
 	end
-	includedirs "../ocgcore"
-	links { "clzma", "Irrlicht" }
+	includedirs { "../ocgcore", "../discord-social/include" }
+	links { "clzma", "Irrlicht", "discord_partner_sdk" }
+	libdirs { "../discord-social/lib" }
 	filter "system:macosx or ios"
-		links { "iconv" }
+	links { "iconv" }
 	filter {}
 	if _OPTIONS["no-joystick"]=="false" then
 		defines "YGOPRO_USE_JOYSTICK"
@@ -141,6 +142,10 @@ local ygopro_config=function(static_core)
 	end
 
 	filter "system:windows"
+   		postbuildcommands { '{COPYFILE} "../discord-social/bin/discord_partner_sdk.dll" "%{cfg.targetdir}/discord_partner_sdk.dll"' }
+	filter {}
+	
+	filter "system:windows"
 		kind "ConsoleApp"
 		files "ygopro.rc"
 		_includedirs { "../irrlicht/include" }
@@ -161,7 +166,7 @@ local ygopro_config=function(static_core)
 		end
 		links { "sqlite3", "event", "event_pthreads", "dl", "git2", "ssh2" }
 
-	filter { "system:windows", "action:not vs*" }
+	filter { "system:windows", "action: vs*" }
 		if _OPTIONS["discord"] then
 			links "discord-rpc"
 		end

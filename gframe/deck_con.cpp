@@ -1295,6 +1295,22 @@ bool DeckBuilder::CheckCardProperties(const CardDataM& data) {
 				if(!(data._data.ot & SCOPE_CUSTOM))
 					return false;
 				break;
+			case LIMITATION_FILTER_OCG_CUSTOM:
+				if(!(data._data.ot & SCOPE_OCG_CUSTOM))
+					return false;
+				break;
+			case LIMITATION_FILTER_TCG_CUSTOM:
+				if(!(data._data.ot & SCOPE_TCG_CUSTOM))
+					return false;
+				break;
+			case LIMITATION_FILTER_OCG_TCG_CUSTOM:
+				if(!(data._data.ot & SCOPE_OCG_TCG_CUSTOM))
+					return false;
+				break;
+			case LIMITATION_FILTER_PRERELEASE_CUSTOM:
+				if(!(data._data.ot & SCOPE_PRERELEASE_CUSTOM))
+					return false;
+				break;
 			default:
 				break;
 		}
