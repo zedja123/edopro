@@ -18,12 +18,12 @@ BEGIN
 		BEGIN
 			VALUE "OriginalFilename", "EDOPro.exe"
 			VALUE "InternalName", "ygoprodll"
-			VALUE "FileVersion", "41.0.2.0"
-			VALUE "ProductName", "Project Ignis: EDOPro"
-			VALUE "ProductVersion", "41.0.2.0"
+			VALUE "FileVersion", "1.0.0"
+			VALUE "ProductName", "Masquerena's Club: EDOPro"
+			VALUE "ProductVersion", "1.0.0"
 			VALUE "LegalCopyright", "Copyright (C) 2020-2026 edo9300 and others"
-			VALUE "CompanyName", "Project Ignis"
-			VALUE "FileDescription", "Project Ignis: EDOPro, the bleeding-edge automatic duel simulator"
+			VALUE "CompanyName", "Masquerena's Club"
+			VALUE "FileDescription", "Masquerena's Club: EDOPro, the bleeding-edge automatic duel simulator"
 		END
 	END
 	BLOCK "VarFileInfo"

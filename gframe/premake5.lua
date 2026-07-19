@@ -256,7 +256,7 @@ end
 
 if not _OPTIONS["no-core"] then
 	project "ygopro"
-		targetname "ygopro"
+		targetname "MASQPro"
 		if _OPTIONS["prebuilt-core"] then
 			libdirs { _OPTIONS["prebuilt-core"] }
 		end
