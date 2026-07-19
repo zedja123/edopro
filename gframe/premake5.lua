@@ -31,19 +31,19 @@ local ygopro_config=function(static_core)
 
 	defines "CURL_STATICLIB"
 	if _OPTIONS["pics"] then
-		defines { "DEFAULT_PIC_URL=" .. _OPTIONS["pics"] }
+		defines { 'DEFAULT_PIC_URL="' .. _OPTIONS["pics"] .. '"' }
 	end
 	if _OPTIONS["fields"] then
-		defines { "DEFAULT_FIELD_URL=" .. _OPTIONS["fields"] }
+		defines { 'DEFAULT_FIELD_URL="' .. _OPTIONS["fields"] .. '"' }
 	end
 	if _OPTIONS["covers"] then
-		defines { "DEFAULT_COVER_URL=" .. _OPTIONS["covers"] }
+		defines { 'DEFAULT_COVER_URL="' .. _OPTIONS["covers"] .. '"' }
 	end
 	if _OPTIONS["discord"] and not os.istarget("ios") then
 		defines { 'DISCORD_APP_ID="' .. _OPTIONS["discord"] .. '"' }
 	end
 	if _OPTIONS["update-url"] then
-		defines { "UPDATE_URL=" .. _OPTIONS["update-url"] }
+		defines { 'UPDATE_URL="' .. _OPTIONS["update-url"] .. '"' }
 	end
 	if _OPTIONS["bundled-font"] then
 		defines "YGOPRO_USE_BUNDLED_FONT"
