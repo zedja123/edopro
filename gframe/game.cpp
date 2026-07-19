@@ -3451,24 +3451,10 @@ void Game::ReloadCBLimit() {
 		cbLimit->addItem(gDataManager->GetSysString(1902).data(), DeckBuilder::LIMITATION_FILTER_TCG_OCG);
 		cbLimit->addItem(gDataManager->GetSysString(1903).data(), DeckBuilder::LIMITATION_FILTER_PRERELEASE);
 		cbLimit->addItem(gDataManager->GetSysString(1268).data(), DeckBuilder::LIMITATION_FILTER_CUSTOM);
-<<<<<<< HEAD
-<<<<<<< HEAD
 		cbLimit->addItem(gDataManager->GetSysString(1905).data(), DeckBuilder::LIMITATION_FILTER_OCG_CUSTOM);
 		cbLimit->addItem(gDataManager->GetSysString(1906).data(), DeckBuilder::LIMITATION_FILTER_TCG_CUSTOM);
 		cbLimit->addItem(gDataManager->GetSysString(1907).data(), DeckBuilder::LIMITATION_FILTER_OCG_TCG_CUSTOM);
 		cbLimit->addItem(gDataManager->GetSysString(1908).data(), DeckBuilder::LIMITATION_FILTER_PRERELEASE_CUSTOM);
-=======
-=======
->>>>>>> 270ebad6aecf12cba8ed13f397cc932633d86891
-		cbLimit->addItem(gDataManager->GetSysString(1268).data(), DeckBuilder::LIMITATION_FILTER_OCG_CUSTOM);
-		cbLimit->addItem(gDataManager->GetSysString(1268).data(), DeckBuilder::LIMITATION_FILTER_TCG_CUSTOM);
-		cbLimit->addItem(gDataManager->GetSysString(1268).data(), DeckBuilder::LIMITATION_FILTER_OCG_TCG_CUSTOM);
-		cbLimit->addItem(gDataManager->GetSysString(1268).data(), DeckBuilder::LIMITATION_FILTER_PRERELEASE_CUSTOM);
-<<<<<<< HEAD
->>>>>>> 270ebad6aecf12cba8ed13f397cc932633d86891
-=======
->>>>>>> 270ebad6aecf12cba8ed13f397cc932633d86891
-
 		if(chkAnime->isChecked()) {
 			cbLimit->addItem(gDataManager->GetSysString(1265).data(), DeckBuilder::LIMITATION_FILTER_ANIME);
 			cbLimit->addItem(gDataManager->GetSysString(1266).data(), DeckBuilder::LIMITATION_FILTER_ILLEGAL);
