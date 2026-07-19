@@ -139,10 +139,6 @@ local ygopro_config=function(static_core)
 		end
 		files "SoundBackends/sound_threaded_backend.*"
 	end
-
-	filter "system:windows"
-   		postbuildcommands { '{COPYFILE} "../discord-social/bin/discord_partner_sdk.dll" "%{cfg.targetdir}/discord_partner_sdk.dll"' }
-	filter {}
 	
 	filter "system:windows"
 		kind "ConsoleApp"
