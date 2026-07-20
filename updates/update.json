@@ -1,10 +1,10 @@
-{
-    "version": "1.0.5",
-    "files": [
-        {
-            "name":"MASQPro.zip",
-            "url":"https://github.com/zedja123/MASQPro/releases/download/1.0.5/MASQPro.zip",
-            "md5":"20e3c02fbab090906a5e55c8a724681e"
-        }
-    ]
+﻿{
+    "version":  "0.0.4",
+    "files":  [
+                  {
+                      "md5":  "7811f93a960e2f13c87071e1f944cac2",
+                      "url":  "https://github.com/zedja123/MASQPro/releases/download/0.0.4/MASQPro.zip",
+                      "name":  "MASQPro.zip"
+                  }
+              ]
 }
