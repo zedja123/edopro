@@ -178,15 +178,23 @@ Write-Host ""
 Write-Host "Creating GitHub Release..."
 Write-Host ""
 
-& gh release create `
+Write-Host ""
+Write-Host "Creating GitHub Release..."
+Write-Host ""
+
+$output = & gh release create `
     $version `
     $zip `
     --repo zedja123/MASQPro `
     --title $title `
-    --verify-tag
+    --verify-tag 2>&1
 
-if ($LASTEXITCODE -ne 0) {
-    throw "GitHub Release creation failed (ExitCode=$LASTEXITCODE)"
+$exitCode = $LASTEXITCODE
+
+Write-Host $output
+
+if ($exitCode -ne 0) {
+    throw "GitHub Release creation failed.`n$output"
 }
 
 Write-Host ""
