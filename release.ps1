@@ -49,14 +49,16 @@ switch($Type){
  "patch" {$patch++}
 }
 
-$currentCodename = [regex]::Match(
+$match = [regex]::Match(
     $content,
     '(?m)^#define\s+EDOPRO_VERSION_CODENAME\s+"([^"]+)"'
-).Groups[1].Value
+)
 
-if([string]::IsNullOrWhiteSpace($currentCodename)){
-    throw "Couldn't read EDOPRO_VERSION_CODENAME."
+if(!$match.Success){
+    throw "Couldn't find EDOPRO_VERSION_CODENAME."
 }
+
+$currentCodename = $match.Groups[1].Value.Trim()
 
 Write-Host ""
 Write-Host "Current Codename: $currentCodename"
@@ -67,12 +69,20 @@ if([string]::IsNullOrWhiteSpace($codename)){
     $codename = $currentCodename
 }
 
+function Set-Define($text, $macro, $value){
 
-$content = $content `
--replace '#define EDOPRO_VERSION_MAJOR\s+\d+', "#define EDOPRO_VERSION_MAJOR $major" `
--replace '#define EDOPRO_VERSION_MINOR\s+\d+', "#define EDOPRO_VERSION_MINOR $minor" `
--replace '#define EDOPRO_VERSION_PATCH\s+\d+', "#define EDOPRO_VERSION_PATCH $patch" `
--replace '#define EDOPRO_VERSION_CODENAME\s+".*"', "#define EDOPRO_VERSION_CODENAME `"$codename`""
+    return [regex]::Replace(
+        $text,
+        "(?m)^#define\s+$macro\s+.*$",
+        "#define $macro $value"
+    )
+
+}
+
+$content = Set-Define $content "EDOPRO_VERSION_MAJOR" $major
+$content = Set-Define $content "EDOPRO_VERSION_MINOR" $minor
+$content = Set-Define $content "EDOPRO_VERSION_PATCH" $patch
+$content = Set-Define $content "EDOPRO_VERSION_CODENAME" "`"$codename`""
 
 Set-Content $config.FullName $content -Encoding UTF8
 
