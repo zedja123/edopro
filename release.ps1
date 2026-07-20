@@ -159,6 +159,19 @@ git tag $version
 git push
 git push origin $version
 
+$maxAttempts = 10
+
+for ($i = 0; $i -lt $maxAttempts; $i++) {
+
+    git ls-remote --tags origin | Select-String $version
+
+    if ($LASTEXITCODE -eq 0) {
+        break
+    }
+
+    Start-Sleep 2
+}
+
 gh release create `
     $version `
     $zip `
