@@ -89,6 +89,13 @@ Set-Content $config.FullName $content -Encoding UTF8
 
 # Locate MSBuild
 $vswhere = Join-Path ${env:ProgramFiles(x86)} "Microsoft Visual Studio\Installer\vswhere.exe"
+Write-Host ""
+Write-Host "=========================="
+Write-Host "Building solution..."
+Write-Host "Solution: $($solution.FullName)"
+Write-Host "MSBuild : $msbuild"
+Write-Host "=========================="
+Write-Host ""
 $msbuild = $null
 if(Test-Path $vswhere){
     $msbuild = & $vswhere -latest -products * -requires Microsoft.Component.MSBuild -find "MSBuild\**\Bin\MSBuild.exe" | Select-Object -First 1
