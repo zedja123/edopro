@@ -209,9 +209,13 @@ Write-Host ""
 Write-Host "Creating GitHub Release..."
 Write-Host ""
 
+$exe = Join-Path $ReleaseDir "MASQPro.exe"
+$dll = Join-Path $ReleaseDir "ocgcore.dll"
+
 $output = & gh release create `
     $version `
-    $zip `
+    $exe `
+    $dll `
     --repo zedja123/MASQPro `
     --title $title `
     --verify-tag 2>&1
